@@ -1,0 +1,26 @@
+// range of automorphic number 
+
+import java.util.*;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int no = sc.nextInt();
+        for (int n=1; n<=no; n++ ){
+        int s = n * n;
+        boolean flag = true;
+        int rep = n;
+        while (rep  > 0) {
+            if (rep % 10 != s % 10)
+                flag = false;
+            rep /= 10;
+            s /= 10;
+        }
+      if (flag){
+        System.out.print(n + " ");
+      }
+    }
+}
+}
+output:
+ 100
+ 1 5 6 25 76 

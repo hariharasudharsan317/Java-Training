@@ -1,0 +1,50 @@
+/circulation to check prime number
+
+import java.util.*;
+import java.io.*;
+
+public class Solution {
+    public static void main(String[] arg) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (cir(n))
+            System.out.println("yes");
+        else
+            System.out.println("no");
+    }
+
+    static boolean prime(int n) {
+        if (n < 2)
+            return false;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0)
+                return false;
+        }
+
+        return true;
+    }
+
+    static boolean cir(int n) {
+        int count = 0;
+        int temp = n;
+        while (temp > 0) {
+            count++;
+            temp /= 10;
+        }
+
+        int num = n;
+        while (prime(num)) {
+            int rem = num % 10;
+            int qou = num / 10;
+            int power = 1;
+            for (int i = 1; i < count; i++) {
+                power *= 10;
+            }
+            num = power * rem + qou;
+
+            if (num == n)
+                return true;
+        }
+        return false;
+    }
+}

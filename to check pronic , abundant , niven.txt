@@ -1,0 +1,56 @@
+// to check pronic , abundant , niven
+
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int condition = (pronic(n) ? 4 : 0) + (abundant(n) ? 2 : 0) + (niven(n) ? 1 : 0);
+
+switch (condition) {
+    case 7 -> System.out.println("The given number is pronic, abundant, and Niven.");
+    case 6 -> System.out.println("The given number is pronic and abundant.");
+    case 5 -> System.out.println("The given number is pronic and Niven.");
+    case 4 -> System.out.println("The given number is only pronic.");
+    case 3 -> System.out.println("The given number is abundant and Niven.");
+    case 2 -> System.out.println("The given number is only abundant.");
+    case 1 -> System.out.println("The given number is only Niven.");
+    default -> System.out.println("The given number does not satisfy any condition.");
+}}
+
+    static boolean pronic(int n) {
+        if (n < 0) {
+            return false;
+        }
+        for (int f = 0; f <= Math.sqrt(n); f++) {
+            if (f * (f + 1) == n) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static boolean abundant(int n) {
+
+        int add = 0;
+        for (int i = 1; i <= n / 2; i++) {
+            if (n % i == 0) {
+                add += i;
+            }
+        }
+        return add > n;
+    }
+
+    static boolean niven(int n) {
+        int ref = n;
+        int ans = 0;
+        while (n != 0) {
+            int N = n % 10;
+            ans += N;
+            n /= 10;
+        }
+        return ref % ans == 0;
+    }
+
+}

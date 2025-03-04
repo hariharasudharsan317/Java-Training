@@ -1,0 +1,70 @@
+// to convert bin,hex,oct
+
+  import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        oct(a);
+        binary(a);
+        System.out.println(hex(a));
+    }
+
+    static void oct(int a) {
+        int ans = 0;
+        int inc = 1;
+        while (a != 0) {
+            int N = a % 8;
+            int n = a / 8;
+            a = n;
+            ans += N * inc;
+            inc *= 10;
+        }
+        System.out.println(ans);
+
+    }
+
+    static void binary(int a) {
+
+        int ans = 0;
+        int inc = 1;
+        while (a != 0) {
+            int N = a % 2;
+            int n = a / 2;
+            a = n;
+            ans += N * inc;
+            inc *= 10;
+        }
+        System.out.println(ans);
+
+    }
+
+    static String hex(int a) {
+        String ans = "";
+        char hex;
+        while (a != 0) {
+            int N = a % 16;
+            int n = a / 16;
+            a = n;
+            if (N < 10) {
+                hex = (char) ('0' + N);
+            } else {
+                hex = (char) ('A' + (N - 10));
+            }
+            ans += hex;
+        }
+        String Mans = "";
+        for (int i = ans.length() - 1; i >= 0; i--) {
+            Mans += ans.charAt(i);
+
+        }
+        return ans;
+    }
+}
+output:
+255
+377
+11111111
+FF

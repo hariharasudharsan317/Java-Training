@@ -1,0 +1,25 @@
+// harshad number in range
+
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+         Scanner sc = new Scanner(System.in);
+         int n = sc.nextInt();
+         int m = sc.nextInt();
+         for (int i=n; i<m; i++){
+            
+         int ref = i;
+         int ref1 =ref;
+         int ans=0;
+         while (ref!=0){
+            int N = ref%10;
+            ans += N;
+            ref/=10;
+         }
+         if (ref1 %  ans==0  ){
+System.out.print(ref1 + " " );
+         }
+        }
+    }
+}

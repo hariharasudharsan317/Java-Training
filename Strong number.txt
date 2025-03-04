@@ -1,0 +1,28 @@
+// Strong number 
+
+import java.util.*;
+import java.io.*;
+
+public class Solution {
+    public static void main(String[] arg) {
+        Scanner sc= new Scanner (System.in);
+        int n = sc.nextInt();
+        int ref = n;
+        int ans = 0;
+        while (n != 0) {
+            int i = n % 10;
+            ans += fact(i);
+            n /= 10;
+        }
+            if(ans == ref) System.out.println("Strong number");
+            else System.out.println("no") ;
+        
+}
+    static int fact(int n){
+        if(n>1) return n*fact(n-1);
+        return 1 ;
+    }
+}
+output :
+145          // 1!+4!+5! =1+24+120 =145
+strong number

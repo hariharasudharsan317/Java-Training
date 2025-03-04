@@ -1,0 +1,35 @@
+//to check the number is prime and also reverse of the number also prime
+
+import java.util.*;
+import java.io.*;
+
+public class Solution {
+    public static void main(String[] arg) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int ref = n;
+        int ans = 0;
+        while (n != 0) {
+            int i = n % 10;
+            ans = (ans * 10) + i;
+            n /= 10;
+        }
+        if (prime(ref) == true && prime(ans) == true)
+            System.out.println("yes");
+        else
+            System.out.println("no");
+
+    }
+
+    static boolean prime(int n) {
+        if (n < 2)
+            return false;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0)
+                return false;
+        }
+
+        return true;
+    }
+
+}
