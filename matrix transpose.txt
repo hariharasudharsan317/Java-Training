@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the row ");
+        int row = sc.nextInt();
+        System.out.println("Enter the col ");
+        int col = sc.nextInt();
+        int[][] arr = new int[row][col];
+        System.out.println("Enter the Matrix value :");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                arr[i][j] = sc.nextInt();
+
+            }
+        }
+
+for (int i=0; i< row; i++){
+    for (int j=0; j<col; j++){
+        arr[j][i] = arr[i][j];
+    }
+}
+System.out.println("Sorted array : ");
+for (int i = 0; i < row; i++) {
+    for (int j = 0; j < col; j++) {
+        System.out.print(arr[j][i] + " ");
+    }
+    System.out.println();
+}
+
+    }
+}
+
+
+Enter the row 
+3
+Enter the col 
+3
+Enter the Matrix value :
+5 4 7
+1 8 3
+9 6 2
+transpose array : 
+5 4 7
+4 8 3
+7 3 2
